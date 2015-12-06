@@ -20,4 +20,12 @@ public class StudentDaoImpl  extends BaseDao<Student> implements StudentDao{
 		return queryOneObject(sql, studentId);
 	}
 
+	@Override
+	public void updatePassword(Student student) {
+
+		String sql = "update students set studentPassword = ? where studentId = ?";
+		update(sql, student.getPassword(),student.getStudentId());
+		
+	}
+
 }

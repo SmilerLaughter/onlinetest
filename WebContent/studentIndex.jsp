@@ -11,8 +11,10 @@
 	
 	<%
 	session.setAttribute("student", new Student(1,"hehe","123",1));
+
 	%>
-	<a href = "studentServlet?method=goStartTest">开始考试</a>
 	
+	<a href = "studentServlet?method=goStartTest">开始考试</a>
+	<a href = "studentServlet?method=getPaper">测试试卷</a>
 </body>
 </html>

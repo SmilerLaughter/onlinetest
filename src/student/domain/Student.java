@@ -5,7 +5,20 @@ public class Student {
 	private String studentName;
 	private String password;
 	private int flag;
+	private int studentPaperId;
 	
+	
+	
+
+
+	public int getStudentPaperId() {
+		return studentPaperId;
+	}
+
+	public void setStudentPaperId(int studentPaperId) {
+		this.studentPaperId = studentPaperId;
+	}
+
 	public int getFlag() {
 		return flag;
 	}
@@ -54,10 +67,8 @@ public class Student {
 	public String toString() {
 		return "Student [studentId=" + studentId + ", studentName="
 				+ studentName + ", password=" + password + ", flag=" + flag
-				+ "]";
+				+ ", studentPaperId=" + studentPaperId + "]";
 	}
 
-	
-	
-	
+
 }

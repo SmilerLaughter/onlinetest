@@ -4,10 +4,13 @@ import java.util.List;
 
 import student.dao.SubjectDao;
 import student.dao.TeacherDao;
+import student.dao.TeacherSubjectDao;
 import student.daoimpl.SubjectDaoImpl;
 import student.daoimpl.TeacherDaoImpl;
+import student.daoimpl.TeacherSubjectDaoImpl;
 import student.domain.Subject;
 import student.domain.Teacher;
+import student.domain.TeacherSubject;
 
 public class TeacherSubjectService {
 
@@ -24,4 +27,7 @@ public class TeacherSubjectService {
 		
 		return teachers;
 	}
+
+
+	
 }

@@ -11,6 +11,7 @@ public interface DAO<T>{
 	
 	public List<T> queryForList(String sql ,Object ... args);
 	
+	
 	public T queryOneObject(String sql ,Object ...args);
 	
 	public <V>V queryForSingleValue(String sql ,Object ... args);

@@ -23,4 +23,12 @@ public class SubjectDaoImpl  extends BaseDao<Subject> implements SubjectDao{
 		return queryForList(sql, teacherId);
 	}
 
+
+
+	@Override
+	public Subject getSubjectWithTeacherSubjectId(int teacherSubjectId) {
+		String sql = "select * from subjects where subjectId = (select subjectId from teacher_subjects where teacherSubjectId = ?)";
+		return queryOneObject(sql, teacherSubjectId);
+	}
+	
 }

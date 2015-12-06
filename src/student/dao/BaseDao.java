@@ -85,6 +85,7 @@ public class BaseDao<T> implements DAO<T> {
 			return queryRunner.query(connection, sql, new BeanListHandler<T>(clazz), args);
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -94,7 +95,7 @@ public class BaseDao<T> implements DAO<T> {
 		Connection connection = null;
 		try {
 			connection = TransationConnection.getTransationConnection().getConnection();
-			return  queryRunner.query(connection, null, new BeanHandler<T>(clazz), args);
+			return  queryRunner.query(connection, sql, new BeanHandler<T>(clazz), args);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -122,8 +123,8 @@ public class BaseDao<T> implements DAO<T> {
 			queryRunner.batch(connection, sql, args);
 		} catch (Exception e) {
 			// TODO: handle exception
+		//e.printStackTrace();
 		}
 	}
-
-
 }
+

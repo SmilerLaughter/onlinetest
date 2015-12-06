@@ -4,7 +4,7 @@ body,p,ul,li,h1,h2 {
 }
 body {
 	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 12px;
+	font-size: 16px;
 }
 li {
 	list-style: none;
@@ -13,21 +13,22 @@ a {
 	text-decoration: none;
 }
 #header {
-	background: #32B5E3;
-	width: 100%;
 	padding: 10px 0;
+	width: 100%;
+	background: #1EA756;	
+	color: #fff;
 }
 #header h1 {
-	color: #fff;
-	font-size: 36px;
-	padding: 10px 20px;
 	display: inline-block;
+	padding: 10px 20px;
+	color: #fff;
+	font-size: 36px;	
 }
+
 /* 用户信息 */
 .userInfo {
 	float: right;
 	margin-right: 20px;
-	background: url(../images/user.png) top left no-repeat;
 	padding-left: 70px;
 }
 .userInfo p {
@@ -38,36 +39,85 @@ a {
 #content {
 	overflow: hidden;
 }
-/* 侧边菜单 */
+
 .left {
 	float: left;
-	width: 200px;
+	width: 20%;
 	min-height: 600px;
-	border-top: 1px solid #fff;	
-	background: #32B5E3;
+	text-align: center;
+	color: #fff;
+	background: #32323A;
 }
 .right {
-	width: 100%;
+	float: left;
+	width: 80%;
 	min-height: 600px;
+	background: #ededed;
 }
+/* 侧栏菜单 */
 .nav li {
-	padding: 10px 20px;
+	padding: 15px 20px;
 	font-weight: bold;
-	font-size: 14px;
+	text-align: center;
 	color: #fff;
-	border-bottom: 1px solid #fff;
 	cursor: pointer;
 }
+.nav li:hover {
+	background: #1EA756;
+}
+.selected {
+	background: #1EA756;
+}
+.mod {
+	width: 100%;
+	display: none;
+}
+
+/* tab */
+.tab_ban {
+	margin: 5% auto;
+	width: 85%;
+	background: #F5F5F5;
+	border: 1px solid #DFDFDF;
+}
+.tab_ban h2,.tab_ban p {
+	padding: 10px;
+	border-bottom: 1px solid #DFDFDF;
+}
+.info_change input {
+	border: 1px solid #DFDFDF;
+	height: 30px;
+}
+
+/* 密码匹配 */
+.error, .ok, .empty {
+	display: none;
+}
+.error {
+	color: #F92C2C;
+}
+.ok {
+	color: #1EA756;
+}
+
 /* 选择科目 */
-.send,#choose {
+.send,#choose,.save {
 	margin: 20px 20px;
 	padding: 8px;	
 	font-size: 15px;
-	border: 1px solid #32B5E3;
-	color: #32B5E3;
-	background: #fff;
+	border: 0;
+	background: #1EA756;
 	cursor: pointer;
+	color: #fff;
 }
+.save {
+	padding: 10px 40px;
+}
+.send {
+	display: none;
+	padding: 10px 40px;
+}
+/* 浮层 */
 .box {	
 	display: none;
 	position: absolute;	
@@ -83,13 +133,16 @@ a {
 	position: absolute;
 	top: 12px;
 	right: 20px;
+	color: #fff;
+	cursor: pointer;
 }
-.box h1 {
+.box h1,.box h2 {
 	padding: 5px 5px;
 	margin-bottom: 10px;
 	color: #fff;
-	background: #32B5E3;
+	background: #1EA756;
 }
+/* 遮罩 */
 .cover {
 	display: none;
 	position: absolute;
@@ -102,24 +155,14 @@ a {
 	opacity: 0.4;
 	filter: Alpha(opacity=40);/* 兼容IE */	
 }
-.start {	
+.box h2 {
+	background: #1EA756;
+	padding: 10px;
+}
+.subject {
+	padding: 10px;
+	color: #000;
+}
+.subject_box,.subject_outer {
 	display: none;
-	margin: 20px;
-	padding: 10px 20px;
-	color: #fff;
-	background: #32B5E3;
-}
-.send:hover {
-	background: #32B5E3;
-	color: #fff;
-}
-/* 底部 */
-#footer {
-	margin-top: 1px;
-	text-align: center;
-	padding: 20px;
-	background: #32B5E3;
-}
-#footer p {
-	color: #fff;
-}
+}  
