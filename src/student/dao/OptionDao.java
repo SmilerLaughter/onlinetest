@@ -1,8 +1,10 @@
 package student.dao;
 
+import java.util.List;
+
 import student.domain.Option;
 
 public interface OptionDao {
 	
-	public Option getOption(int questionId);
+	public List<Option> getOptions(int questionId);
 }

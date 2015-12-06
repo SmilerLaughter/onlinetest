@@ -1,5 +1,7 @@
  package student.domain;
 
+import java.util.List;
+
 
 public class Question {
 	
@@ -8,16 +10,13 @@ public class Question {
 	private int chapterId;
 	private String correctAnswer;
 	private int questionTypeId;
-	private Option options;
+	private List<Option> options;
 
 	
-	public Option getOptions() {
-		return options;
-	}
-
+	
 
 	public Question(int questionId, String questionName, int chapterId,
-			String correctAnswer, int questionTypeId, Option options) {
+			String correctAnswer, int questionTypeId, List<Option> options) {
 		super();
 		this.questionId = questionId;
 		this.questionName = questionName;
@@ -28,10 +27,13 @@ public class Question {
 	}
 
 
-	public void setOptions(Option options) {
+	public void setOptions(List<Option> options) {
 		this.options = options;
 	}
 
+	public List<Option> getOptions() {
+		return options;
+	}
 
 	public Question() {
 
@@ -100,7 +102,7 @@ public class Question {
 
 
 	public Question(String questionName, int chapterId, String correctAnswer,
-			int questionTypeId, Option options) {
+			int questionTypeId, List<Option> options) {
 		super();
 		this.questionName = questionName;
 		this.chapterId = chapterId;
@@ -109,27 +111,5 @@ public class Question {
 		this.options = options;
 	}
 
-
-	@Override
-	public int hashCode() {
-		
-		return questionId;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Question other = (Question) obj;
-			if (questionId != other.questionId)
-			return false;
-		
-		return true;
-	}
 
 }

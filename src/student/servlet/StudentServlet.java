@@ -224,4 +224,9 @@ public class StudentServlet extends HttpServlet {
 	    out.flush();
 	    out.close();
 	}
+	
+	
+	public void test(HttpServletRequest request,HttpServletResponse response ) throws ServletException,IOException{
+		System.out.println(request.getParameter("id"));
+	}
 }

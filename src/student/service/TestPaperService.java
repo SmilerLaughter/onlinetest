@@ -97,16 +97,15 @@ public class TestPaperService {
 			addQuestionOption(testQuestions);
 		}
 		return testQuestions;
-		
 	}
 	
 	public void addQuestionOption(List<Question> questions){//为选择题添加选项
 		int questionId = 0 ;
-		Option option = null;
+		List<Option> options = null;
 		for(Question question:questions){
 			questionId = question.getQuestionId();
-			option = optionDaoImpl.getOption(questionId);
-			question.setOptions(option);
+			options = optionDaoImpl.getOptions(questionId);
+			question.setOptions(options);
 		}
 	}
 
@@ -234,7 +233,7 @@ public class TestPaperService {
 				}else{//客观题
 					flag = 1;
 					if(studentAnswer != null){
-						
+						studentAnswer = studentAnswer.substring(0, 1);
 					if(studentAnswer.equalsIgnoreCase(checkQuestion.getCorrectAnswer())){
 						grade +=score;
 						receiveScore = score;

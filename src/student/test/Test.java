@@ -2,6 +2,7 @@ package student.test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import student.dao.BaseDao;
@@ -64,18 +65,22 @@ public class Test{
 				questionTypeIdRand = (int)(Math.random()*3) + 1 ;
 				chapterIdRand = (int)(Math.random()*9) + 1;
 				questionName = "问题" + i;
-				Option option = null;
+				List<Option> options = new ArrayList<Option>();
 				
 				if (questionTypeIdRand != 2) {
 					correctAnswer = "答案" + i;
-					question = new Question(i,questionName, chapterIdRand, correctAnswer, questionTypeIdRand, option);
+					question = new Question(i,questionName, chapterIdRand, correctAnswer, questionTypeIdRand, options);
 					testDaoImpl.insertQuestion(question);
 				}else {
 					correctAnswer = "A";
-					option = new Option(i, "选项A "+i , "选项B "+ i,"选项C " + i, "选项 D" + i);
-					question = new Question(i,questionName, chapterIdRand, correctAnswer, questionTypeIdRand, option);
+					options.add(new Option(i, "A.选项" + i));
+					options.add(new Option(i, "B.选项" + i));
+					options.add(new Option(i, "C.选项" + i));
+					options.add(new Option(i, "D.选项" + i));
+					options.add(new Option(i, "E.选项" + i));
+					question = new Question(i,questionName, chapterIdRand, correctAnswer, questionTypeIdRand, options);
 					testDaoImpl.insertQuestion(question);
-					optionDaoIml.insert(option);
+					optionDaoIml.insert(options);
 				}
 				
 			}

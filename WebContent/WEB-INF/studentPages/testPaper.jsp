@@ -56,10 +56,10 @@ $(function() {
 					<c:forEach items = "${paperType.questions }" var = "question">
 						<div class="question">
 						<%=i %>.${question.questionName }<br><br>
-						<input type = "radio" name = "${question.questionId }" value = "A">A.${question.options.optionA }<br>
-						<input type = "radio" name = "${question.questionId }" value = "B">B.${question.options.optionB }<br>
-						<input type = "radio" name = "${question.questionId }" value = "C">C.${question.options.optionC }<br>
-						<input type = "radio" name = "${question.questionId }" value = "D">D.${question.options.optionD }<br>
+						
+						<c:forEach items = "${question.options}" var = "option">
+							<input type = "radio" name = "${question.questionId }" value = "${option.optionContent }">${option.optionContent }<br>
+						</c:forEach>
 						
 						<% i++; %><br><br>
 						</div>

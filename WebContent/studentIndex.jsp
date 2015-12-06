@@ -14,6 +14,7 @@
 
 	%>
 	
+	
 	<a href = "studentServlet?method=goStartTest">开始考试</a>
 	<a href = "studentServlet?method=getPaper">测试试卷</a>
 </body>
