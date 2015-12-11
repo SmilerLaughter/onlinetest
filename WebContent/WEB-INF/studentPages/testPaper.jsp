@@ -40,7 +40,7 @@ $(function() {
 <body>
 <div class="main">
 	<center><h1>此次在线考试科目为：${requestScope.subject.subjectName }</h1>
-		<h3>总分：${requestScope.teacherSubject.grade }分 &nbsp;&nbsp;&nbsp; 考试时间：${requestScope.teacherSubject.time } 分钟</h3>
+		<h3>总分：${requestScope.teacherSubject.grade } 分 &nbsp;&nbsp;&nbsp; 考试时间：${requestScope.teacherSubject.time } 分钟</h3>
 	</center>
 	
 	

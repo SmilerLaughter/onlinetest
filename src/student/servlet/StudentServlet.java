@@ -157,7 +157,7 @@ public class StudentServlet extends HttpServlet {
 				
 				//随机抽取
 				if(subjectId > 0 && teacherId > 0){
-					paperTypes = testPaperService.getTestQuestions(subjectId,teacherId,student,request);//随机抽取题
+					paperTypes = testPaperService.getTestQuestions(subjectId,teacherId,student,request,response);//随机抽取题
 				}
 				
 			} catch (Exception e) {

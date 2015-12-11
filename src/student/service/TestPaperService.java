@@ -1,11 +1,15 @@
 package student.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONObject;
 import student.dao.CheckQuestionDao;
 import student.dao.OptionDao;
 import student.dao.PaperTypeDao;
@@ -49,11 +53,13 @@ public class TestPaperService {
 	private CheckQuestionDao checkQuestionDaoImpl = new CheckQuestionDaoImpl();
 	private StudentQUestionAnswerDao studentQUestionAnswerDaoImpl = new StudentQuestionAnswerDaoImpl();
 	
-	public List<PaperType> getTestQuestions(int subjectId, int teacherId, Student student,HttpServletRequest request) { 
+	public List<PaperType> getTestQuestions(int subjectId, int teacherId, Student student,HttpServletRequest request ,HttpServletResponse response) { 
 		
 		TeacherSubject teacherSubject = teacherSubjectDaoImpl.getTeacherSubject(teacherId, subjectId);
 		int teacherSubjectId = teacherSubject.getTeacherSubjectId();
 		request.setAttribute("teacherSubject", teacherSubject);
+		toJson(teacherSubject,response);
+		
 		
 		Subject subject = subjectDaoImpl.getSubject(subjectId);
 		request.setAttribute("subject", subject);
@@ -75,6 +81,23 @@ public class TestPaperService {
 		return paperTypes;
 	}
 	
+
+	private void toJson(TeacherSubject teacherSubject,HttpServletResponse response) {
+		JSONObject jsonObject = JSONObject.fromObject(teacherSubject);
+		PrintWriter out = null;
+		try {
+			 out = response.getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			 out.print(jsonObject);
+			 out.flush();
+			 out.close();
+		}
+		
+	}
+
 
 	public List<Question> getPortionQuestions(PaperType paperType,int subjectId){//从全部试题中抽取试题
 		
